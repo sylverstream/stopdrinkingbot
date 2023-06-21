@@ -2,6 +2,7 @@ import * as fs from "fs";
 import LemmyBot, { BotActions } from "lemmy-bot";
 import { env } from "process";
 import * as yaml from "yaml";
+console.log("defining bot");
 const bot = new LemmyBot({
   instance: "lemmy.world",
   credentials: {
