@@ -9,7 +9,7 @@ const bot = new LemmyBot({
     username: env.BOT_USERNAME,
     password: env.BOT_PASSWORD,
   },
-  dbFile: "db.sqlite3",
+  //dbFile: "db.sqlite3",
   connection: {
     minutesBeforeRetryConnection: 1,
   },
