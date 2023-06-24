@@ -2,7 +2,15 @@ import * as fs from "fs";
 import LemmyBot, { BotActions } from "lemmy-bot";
 import { env } from "process";
 import * as yaml from "yaml";
-console.log("defining bot");
+
+const getCurrentDay: () => number = () => {
+  const nzDateTimeStr = new Date().toLocaleString("en-US", {
+    timeZone: "Pacific/Auckland",
+  });
+  const nzDate = new Date(nzDateTimeStr);
+  const currentDay = nzDate.getDay();
+  return currentDay;
+};
 const bot = new LemmyBot({
   instance: "lemmy.world",
   credentials: {
@@ -29,7 +37,7 @@ const bot = new LemmyBot({
           instance: "lemmy.world",
           name: "stopdrinking",
         });
-        const currentDay = new Date().getDay();
+        const currentDay = getCurrentDay();
         const key = `day_${currentDay}`;
         const post = dailycheckins[key];
         const name = post["title"];
@@ -45,7 +53,7 @@ const bot = new LemmyBot({
     },
   ],
 });
-
+console.log(`starting bot at day ${getCurrentDay()}`);
 bot.start();
 
 const express = require("express");
