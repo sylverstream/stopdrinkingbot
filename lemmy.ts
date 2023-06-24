@@ -16,8 +16,7 @@ const bot = new LemmyBot({
   schedule: [
     {
       runAtStart: false,
-      // cronExpression: "0 10 * * *",
-      cronExpression: "* * * * *",
+      cronExpression: "0 9 * * *",
       timezone: "Pacific/Auckland",
       doTask: async (botActions: BotActions) => {
         console.log("Starting bot task");
