@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p .",
-    "start": "node dist/lemmy.js"
+    "build": "tsc -p . && cp package.json dist && cp dailycheckins.yml dist",
+    "start": "node lemmy.js"
   },
   "author": "",
   "license": "ISC",
